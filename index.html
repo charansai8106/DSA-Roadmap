@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSA Mastery Roadmap</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Top Navigation & Global Controls -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-badge">DSA</div>
+      <div>
+        <div class="brand-title">Mastery Roadmap</div>
+        <div class="brand-sub" id="brand-sub">— problems · — topics</div>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <span class="search-ic">&#128269;</span>
+      <input id="search-input" type="text" placeholder="Search problems, topics, companies…" />
+    </div>
+
+    <select id="diff-filter" class="select-input">
+      <option>All</option>
+      <option>Easy</option>
+      <option>Medium</option>
+      <option>Hard</option>
+    </select>
+
+    <select id="status-filter" class="select-input">
+      <option>All</option>
+      <option>Solved</option>
+      <option>Unsolved</option>
+      <option>Favorite</option>
+      <option>Revision</option>
+    </select>
+
+    <div class="topbar-right">
+      <button id="undo-btn" class="icon-btn" data-action="undo" title="Undo topic edit">&#8630;</button>
+      <button id="redo-btn" class="icon-btn" data-action="redo" title="Redo">&#8631;</button>
+      <button class="btn btn-primary" data-action="add-topic">&#43; Topic</button>
+      <button class="icon-btn" data-action="export-json" title="Export JSON backup">&#11015;</button>
+      <button class="icon-btn csv-btn" data-action="export-csv" title="Export CSV">CSV</button>
+      <button class="icon-btn" data-action="trigger-import" title="Import JSON backup">&#11014;</button>
+      <input id="import-file-input" type="file" accept="application/json" style="display:none" />
+    </div>
+  </header>
+
+  <!-- Metrics & Overall Progress Strip -->
+  <section class="stats-strip" id="stats-strip"></section>
+
+  <!-- Main Canvas & Problem Details Drawer -->
+  <main class="main-area">
+    <div id="canvas-wrap">
+      <div id="canvas-inner"></div>
+
+      <div class="canvas-controls">
+        <button class="icon-btn" data-action="zoom-in" title="Zoom in">&#8853;</button>
+        <button class="icon-btn" data-action="zoom-out" title="Zoom out">&#8854;</button>
+        <button class="icon-btn" data-action="reset-view" title="Reset view">&#8635;</button>
+      </div>
+
+      <div class="legend" id="legend"></div>
+      <div class="canvas-hint">Drag background to pan · Drag a card to move it · Scroll to zoom · Click a card to open it</div>
+    </div>
+
+    <!-- Slide-out Problem Drawer -->
+    <aside id="drawer"></aside>
+  </main>
+
+  <!-- Footer Notice -->
+  <footer class="footer-notice">
+    &#9888; Progress auto-saves in this browser (localStorage). Use Export any time for a portable backup.
+  </footer>
+
+  <!-- Toast Notification & Modal Root -->
+  <div id="toast"></div>
+  <div id="modal-root"></div>
+
+  <!-- Application Scripts in Dependency Order -->
+  <script src="js/utils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
